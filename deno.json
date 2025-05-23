@@ -1,0 +1,28 @@
+{
+  "tasks": {
+    "test": "deno test --allow-all"
+  },
+  "fmt": {
+    "files": {
+      "include": ["./"],
+      "exclude": ["./node_modules", "./deno_dir"]
+    },
+    "options": {
+      "lineWidth": 80,
+      "indentWidth": 2,
+      "useTabs": false,
+      "singleQuote": false,
+      "proseWrap": "preserve"
+    }
+  },
+  "lint": {
+    "files": {
+      "include": ["./"],
+      "exclude": ["./node_modules", "./deno_dir"]
+    }
+  },
+  "imports": {
+    "hono": "npm:hono@^4.7.10",
+    "lodash.groupby": "npm:lodash.groupby@^4.6.0"
+  }
+}

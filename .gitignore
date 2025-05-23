@@ -1,0 +1,27 @@
+# Deno cache
+/deno.lock
+/deno_dir/
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# VSCode settings
+.vscode/
+
+# Mac system files
+.DS_Store
+
+# Node compatibility (if using npm specifiers)
+node_modules/
+
+# Coverage output
+coverage/
+
+# Test output
+test_output/
+
+assets/
