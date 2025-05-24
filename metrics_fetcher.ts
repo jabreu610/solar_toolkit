@@ -51,9 +51,11 @@ export async function getPanelsPrometheusMetrics(): Promise<string> {
   const metrics: Metric[] = [];
 
   for (const [panelKey, panelStatus] of Object.entries(status)) {
+
     for (const [componentKey, componentStatus] of Object.entries(panelStatus)) {
       if (!componentStatus.last_communication_time) continue;
       const ts = new Date(componentStatus.last_communication_time).getTime();
+
       for (const [metricKey, value] of Object.entries(componentStatus)) {
         if (value === undefined || !(metricKey in KEYS_TO_METRIC)) continue;
         const { name, type, help } =
