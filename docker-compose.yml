@@ -8,6 +8,15 @@ services:
       - 9090:9090
   server:
     build: .
-    
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    ports:
+      - "8080:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+    restart: unless-stopped
+
 volumes:
   prometheus_data:
+  grafana-storage:
