@@ -26,18 +26,21 @@ const KEYS_TO_METRIC = {
   },
 };
 
+const { panelA, panelB } = getEnvironment();
+const clientA = new TeslaSolarClient(
+  panelA.url,
+  panelA.email,
+  panelA.password
+);
+const clientB = new TeslaSolarClient(
+  panelB.url,
+  panelB.email,
+  panelB.password
+);
+
+await Promise.all([clientA.initialize(), clientB.initialize()]);
+
 export async function getPanelsPrometheusMetrics(): Promise<string> {
-  const { panelA, panelB } = getEnvironment();
-  const clientA = new TeslaSolarClient(
-    panelA.url,
-    panelA.email,
-    panelA.password
-  );
-  const clientB = new TeslaSolarClient(
-    panelB.url,
-    panelB.email,
-    panelB.password
-  );
   const [panelStatusA, panelStatusB] = await Promise.all([
     clientA.getPanelStatus(),
     clientB.getPanelStatus(),
