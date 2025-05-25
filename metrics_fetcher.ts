@@ -10,12 +10,12 @@ const KEYS_TO_METRIC = {
     help: "Instant power in watts",
   },
   energy_exported: {
-    name: "energy_exported_watt_hours",
+    name: "energy_exported_wh",
     type: "counter",
     help: "Energy exported in watt hours",
   },
   energy_imported: {
-    name: "energy_imported_watt_hours",
+    name: "energy_imported_wh",
     type: "counter",
     help: "Energy imported in watt hours",
   },
