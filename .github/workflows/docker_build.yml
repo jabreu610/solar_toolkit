@@ -22,6 +22,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          file: ./apps/solar-monitor/Dockerfile
+          file: apps/solar-monitor/Dockerfile
           tags: jabreu610/solar-metrics-server:latest
-          context: .
+          context: "{{defaultContext}}"
