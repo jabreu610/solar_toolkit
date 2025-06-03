@@ -1,8 +1,9 @@
 import { Hono } from "hono";
 import { timing, startTime, endTime } from "hono/timing";
 import type { TimingVariables } from "hono/timing";
+
 import { getPanelsPrometheusMetrics } from "./metrics_fetcher.ts";
-import { getPrometheusMetrics } from "./prometheus_metric_transformer.ts";
+import { getPrometheusMetrics } from "../../packages/typescript/prometheus_metric_transformer/prometheus_metric_transformer.ts";
 import { VERSION } from "./version.ts";
 
 type Variables = TimingVariables;

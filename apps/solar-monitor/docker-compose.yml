@@ -2,12 +2,12 @@ services:
   prometheus:
     image: prom/prometheus
     volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./infra/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus_data:/prometheus
-    ports:
-      - 9090:9090
   server:
-    build: .
+    build: 
+      dockerfile: ./apps/solar-monitor/Dockerfile
+      context: .
   grafana:
     image: grafana/grafana
     container_name: grafana

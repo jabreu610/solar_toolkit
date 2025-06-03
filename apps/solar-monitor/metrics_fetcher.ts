@@ -1,7 +1,15 @@
-import { TeslaSolarClient } from "./tesla_solar_client.ts";
+import { TeslaSolarClient } from "../../packages/typescript/tesla_solar_client/tesla_solar_client.ts";
 import { getEnvironment } from "./environment.ts";
-import { Metric } from "./types.ts";
-import { getPrometheusMetrics } from "./prometheus_metric_transformer.ts";
+import { getPrometheusMetrics } from "../../packages/typescript/prometheus_metric_transformer/prometheus_metric_transformer.ts";
+
+type Metric = {
+  name: string;
+  labels: { [key: string]: string };
+  value: number | string;
+  type: string;
+  help: string;
+  ts: number;
+};
 
 const KEYS_TO_METRIC = {
   instant_power: {

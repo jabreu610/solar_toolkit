@@ -1,5 +1,13 @@
-import { Metric } from "./types.ts";
 import groupBy from 'lodash.groupby';
+
+export type Metric = {
+  name: string;
+  labels: { [key: string]: string };
+  value: number | string;
+  type: string;
+  help: string;
+  ts: number;
+};
 
 export function getPrometheusMetrics(metrics: Metric[]): string {
   const out = []
