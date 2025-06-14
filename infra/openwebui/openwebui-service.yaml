@@ -1,0 +1,13 @@
+# openwebui-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: openwebui
+  namespace: ollama
+spec:
+  type: LoadBalancer
+  selector:
+    app: openwebui
+  ports:
+    - port: 80
+      targetPort: 8080
